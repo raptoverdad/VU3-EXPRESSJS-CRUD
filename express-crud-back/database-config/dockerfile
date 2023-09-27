@@ -1,0 +1,4 @@
+FROM mysql:latest
+
+RUN echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';" 
+RUN echo "FLUSH PRIVILEGES;"
