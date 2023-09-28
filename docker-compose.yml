@@ -1,57 +1,52 @@
 version: '3.8'
 networks:
-  dev-network:
+  vue-express-crud-network:
     driver: bridge
 services:
-  vue3-expressjs-crud-webapi:
-    image: vue3-expressjs-crud-webapi:v1
+  vue-expressjs-crud-webapi:
+    image: vue-expressjs-crud-webapi:v1
     depends_on:
-      - mysql-db
-    container_name: vue3-expressjs-crud-webapi
+      - express-mysql-db
+    container_name: vue-expressjs-crud-webapi
     ports:
-      - "8088:80"
+      - "8088:3000"
     build:
-      context: ./crud-express-back
+      context: ./express-crud-back
       dockerfile: Dockerfile
     environment:
-      - DBHOST=mysql-db
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=123456
-      - MYSQL_DATABASE=angularaspcruddatabase
-      - Jwt_Issuer=BETTER-CODE-BETTER-APPS-INC
-      - Jwt_Audience=BETTER-CODE-BETTER-APPS-INC
-      - JWT_SECRET_KEY=12345678912345678912345678912345
+      - PORT=3000
     networks:
-      - dev-network
+      - vue-express-crud-network
 
-  mysql-db:
-    image: vue3-expressjs-crud-database:v1
+  express-mysql-db:
+    image: vue-expressjs-crud-database:v1
     command: --default-authentication-plugin=mysql_native_password
-    container_name: vue3-expressjs-crud-database
+    container_name: vue-expressjs-crud-database
     environment:
       - MYSQL_DATABASE=vueexpresscruddatabase
       - MYSQL_ROOT_PASSWORD=123456
     ports:
-      - "3306:3306"
+      - "3309:3306"
     build:
-      context: ./crud-express-back/database-config
+      context: ./express-crud-back/database-config
       dockerfile: Dockerfile
     restart: always
     volumes:
-    - ./crud-express-back/dataaccess/mysql-data:/var/lib/mysql
+    - ./express-crud-back/dataaccess/mysql-data:/var/lib/mysql
     networks:
-     - dev-network
+     - vue-express-crud-network
 
   vue-app:
     image: vue3-expressjs-crud-vue-app:v1
     container_name: vue3-expressjs-crud-vue-app
     build:
-      context: ./crud-vue-front
+      context: ./vue-crud-front
       dockerfile: Dockerfile
+    
     ports:
       - "8080:80" # Puedes mapear el puerto 80 del contenedor al puerto que prefieras en tu máquina local
     networks:
-      - dev-network
+      - vue-express-crud-network
 
 volumes:
   mysql-data:

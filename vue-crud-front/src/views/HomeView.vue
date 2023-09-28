@@ -78,22 +78,33 @@ export default {
     },
     async getUser(){
       if(this.user != ""){
-        let response=await this.$store.dispatch('fetchUser',this.user);
-      this.getUserResponse=response
+        if(this.$store.state.token != false){
+          let response=await this.$store.dispatch('fetchUser',this.user);
+          this.getUserResponse=response
+        }else{
+          alert("aunthenticate before get the user from the database")
+        }
+       
       }
 
     },
     async deleteUser(){
       if(this.deleteUserValue!= ""){
-        let response=await this.$store.dispatch('fetchDeleteUser',this.deleteUserValue);
+        if(this.$store.state.token != false)
+        {
+          let response=await this.$store.dispatch('fetchDeleteUser',this.deleteUserValue);
       this.deleteUserResponse=response
+        }else{
+          alert("aunthenticate before delete the user from the database")
+        }
+
       }
 
     },
     async insertUser() {
   if (this.insertUserValue !== "" && this.insertAgeValue !== "") {
-    // Verifica si insertAgeValue no es un número
-    if (!isNaN(this.insertAgeValue)) {
+    if(this.$store.state.token != false){
+      if (!isNaN(this.insertAgeValue)) {
       // insertAgeValue es un número válido
       let response = await this.$store.dispatch('fetchInsertUser', { nombre: this.insertUserValue, edad: this.insertAgeValue });
       this.insertUserResponse = response;
@@ -102,6 +113,10 @@ export default {
      alert("Debes ingresar una edad valida")
       // Puedes mostrar un mensaje de error al usuario o realizar otra acción adecuada.
     }
+    }else{
+      alert("autenticate antes de insertar usuarios")
+    }
+   
   }
 },
 async getUsers() {

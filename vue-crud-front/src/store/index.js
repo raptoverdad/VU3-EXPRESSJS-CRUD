@@ -24,7 +24,7 @@ export default createStore({
     async fetchToken({ commit,state }) {
       try {
       state.isLoading.authenticate=true
-        const response = await axios.get('http://localhost:3000/authenticate');
+        const response = await axios.get('http://localhost:8088/authenticate');
         const token = response.data.token
         commit('setToken', token);
         state.isLoading.authenticate=false
@@ -46,7 +46,7 @@ export default createStore({
             }
             console.log(user)
             state.isLoading.getUserByName = true;
-            const url = `http://localhost:3000/getUserByName/${user}`; // Concatena user en la URL
+            const url = `http://localhost:8088/getUserByName/${user}`; 
             const response = await axios.get(url,config);
             const responseUser = response.data.user;
             state.isLoading.getUserByName = false;
@@ -72,7 +72,7 @@ export default createStore({
               }
             }
             state.isLoading.getUsers = true;
-            const url = `http://localhost:3000/getUsers`; // Concatena user en la URL
+            const url = `http://localhost:8088/getUsers`; // Concatena user en la URL
             const response = await axios.get(url,config);
             const responseUser = response.data.users;
             state.isLoading.getUsers = false;
@@ -98,7 +98,7 @@ export default createStore({
         }
         console.log(user)
         state.isLoading.deleteUser = true;
-        const url = `http://localhost:3000/deleteUser/${user}`; // Concatena user en la URL
+        const url = `http://localhost:8088/deleteUser/${user}`; // Concatena user en la URL
         const response = await axios.delete(url,config);
         const responseUser = response.data.delete;
         state.isLoading.deleteUser = false;
@@ -120,7 +120,7 @@ export default createStore({
               }
             }
             state.isLoading.insertUser = true;
-            const url = `http://localhost:3000/insertUser`; // Concatena user en la URL
+            const url = `http://localhost:8088/insertUser`; // Concatena user en la URL
             const response = await axios.post(url,{name:data.nombre,age:data.edad},config);
             const responseUser = response.data.insert;
             state.isLoading.insertUser = false;

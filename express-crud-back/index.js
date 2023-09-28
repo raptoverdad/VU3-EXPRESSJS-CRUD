@@ -1,7 +1,6 @@
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const express = require('express');
-require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -70,6 +69,4 @@ app.post('/insertUser', verifyToken, async(req, res) => {
 
 app.listen(process.env.PORT,async () => {
   console.log("listenning on port ",process.env.PORT)
-  let users=await (await businessLayer).getUsers()  
-  console.log(users)
 });

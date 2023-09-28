@@ -18,18 +18,25 @@ class DataAccess {
       console.log('La conexión ya se realizó anteriormente.');
       return;
     }
-
-    try {
-      this.connection = new Sequelize('vueexpresscruddatabase', 'root', '123456', {
-        host: 'dev-network',
-        dialect: 'mysql',
-        port: 3306,
-      });
-      this.User = require('./models/user')(this.connection, DataTypes);
-      await this.connection.authenticate();
-      this.isConnected = true; // Actualizamos el estado de la conexión
-    } catch (error) {
-      console.error('Error al conectar a la base de datos:', error);
+  
+    const retryInterval = 5000; // Intervalo entre reintentos en milisegundos
+  
+    while (true) {
+      try {
+        this.connection = new Sequelize('vueexpresscruddatabase', 'root', '123456', {
+          host: 'express-mysql-db',
+          dialect: 'mysql',
+        });
+        this.User = require('./models/user')(this.connection, DataTypes);
+        await this.connection.authenticate();
+        this.isConnected = true; // Actualizamos el estado de la conexión
+        console.log('Conexión exitosa.');
+        return; // Si la conexión es exitosa, sal del bucle
+      } catch (error) {
+        console.error('Error al conectar a la base de datos:');
+        console.log(`Reintentando la conexión en ${retryInterval / 1000} segundos...`);
+        await new Promise((resolve) => setTimeout(resolve, retryInterval));
+      }
     }
   }
 
