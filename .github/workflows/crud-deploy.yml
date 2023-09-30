@@ -1,0 +1,35 @@
+on: push
+name: deploy
+jobs:
+  build-and-push:
+    name: build and push image
+    runs-on: ubuntu-latest   
+    strategy:
+      matrix:
+        dockerfile:
+          - ./vue-crud-front/Dockerfile
+          - ./express-crud-back/Dockerfile
+          - ./express-crud-back/database-config/Dockerfile
+        imagename:
+          - RODRIGO-MIRANDA/vue&express-crud-front:latest
+          - RODRIGO-MIRANDA/vue&express-crud-back:latest
+          - RODRIGO-MIRANDA/vue&express-crud-database:latest
+    steps:
+    - uses: actions/checkout@v3.5.2
+      with:
+          repository: ${{ github.repository }}
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: ${{ matrix.imagename }}
+      env:
+         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
