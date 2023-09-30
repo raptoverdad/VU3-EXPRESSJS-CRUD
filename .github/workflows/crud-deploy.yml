@@ -7,11 +7,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: rodrigomiranda/vue&express-crud-front
+          - image: rodrigomiranda/vue-express-crud-front
             dockerfile: vue-crud-front/dockerfile
-          - image: rodrigomiranda/vue&express-crud-back
+          - image: rodrigomiranda/vue-express-crud-back
             dockerfile: express-crud-back/dockerfile
-          - image: rodrigomiranda/vue&express-crud-database
+          - image: rodrigomiranda/vue-express-crud-database
             dockerfile: express-crud-back/database-config/dockerfile
     steps:
       - name: Checkout code
