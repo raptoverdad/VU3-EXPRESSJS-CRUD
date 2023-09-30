@@ -11,9 +11,9 @@ jobs:
           - ./express-crud-back/Dockerfile
           - ./express-crud-back/database-config/Dockerfile
         imagename:
-          - RODRIGO-MIRANDA/vue-express-crud-front:latest
-          - RODRIGO-MIRANDA/vue-express-crud-back:latest
-          - RODRIGO-MIRANDA/vue-express-crud-database:latest
+          - rodrigomiranda/vue-express-crud-front:latest
+          - rodrigomiranda/vue-express-crud-back:latest
+          - rodrigomiranda/vue-express-crud-database:latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
