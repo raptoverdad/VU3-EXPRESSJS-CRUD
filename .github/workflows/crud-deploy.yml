@@ -7,9 +7,9 @@ jobs:
     strategy:
       matrix:
         dockerfile:
-          - ./vue-crud-front/dockerfile
-          - ./express-crud-back/dockerfile
-          - ./express-crud-back/database-config/dockerfile
+          - vue-crud-front/dockerfile
+          - express-crud-back/dockerfile
+          - express-crud-back/database-config/dockerfile
         imagename:
           - rodrigomiranda/vue-express-crud-front:latest
           - rodrigomiranda/vue-express-crud-back:latest
