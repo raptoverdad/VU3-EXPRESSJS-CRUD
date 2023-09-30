@@ -140,7 +140,7 @@ async getUsers() {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 79vh;
+    height: 80vh;
     font-family: 'Titillium Web', sans-serif;
 }
 .homeWrapper div{
@@ -149,7 +149,7 @@ async getUsers() {
     justify-content: center;
     align-items: center;
     width: 20%;
-    height: 79vh;
+    height: 80vh;
     text-align: center;
     border: 4px solid #6699FF;
     background-color: #99B3FF;
