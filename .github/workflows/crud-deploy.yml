@@ -9,10 +9,6 @@ jobs:
         include:
           - image: rodrigomiranda/vue-express-crud-front
             dockerfile: ./vue-crud-front/dockerfile
-          - image: rodrigomiranda/vue-express-crud-back
-            dockerfile: ./express-crud-back/dockerfile
-          - image: rodrigomiranda/vue-express-crud-database
-            dockerfile: ./express-crud-back/database-config/dockerfile
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -35,8 +31,7 @@ jobs:
           context: .
           file: ${{ matrix.dockerfile }}
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+
 
 
 
