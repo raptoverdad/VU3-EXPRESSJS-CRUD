@@ -8,11 +8,11 @@ jobs:
       matrix:
         include:
           - image: rodrigomiranda/vue-express-crud-front
-            dockerfile: vue-crud-front/dockerfile
+            dockerfile: ./vue-crud-front/dockerfile
           - image: rodrigomiranda/vue-express-crud-back
-            dockerfile: express-crud-back/dockerfile
+            dockerfile: ./express-crud-back/dockerfile
           - image: rodrigomiranda/vue-express-crud-database
-            dockerfile: express-crud-back/database-config/dockerfile
+            dockerfile: ./express-crud-back/database-config/dockerfile
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
