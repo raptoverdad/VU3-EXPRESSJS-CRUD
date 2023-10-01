@@ -9,6 +9,13 @@ jobs:
         include:
           - image: raptoverdad/vue-express-crud-front
             dockerfile: vue-crud-front/dockerfile
+            context: ./vue-crud-front
+          - image: raptoverdad/vue-express-crud-back
+            dockerfile: express-crud-back/dockerfile
+            context: ./express-crud-back
+          - image: raptoverdad/vue-express-crud-database
+            dockerfile: express-crud-back/database-config/dockerfile
+            context: ./express-crud-back/database-config
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,7 +35,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./vue-crud-front
+          context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
