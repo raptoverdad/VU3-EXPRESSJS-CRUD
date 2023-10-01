@@ -8,7 +8,7 @@ jobs:
       matrix:
         include:
           - image: rodrigomiranda/vue-express-crud-front
-            dockerfile: ./vue-crud-front/dockerfile
+            dockerfile: vue-crud-front/dockerfile
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ${{ matrix.dockerfile }}
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
