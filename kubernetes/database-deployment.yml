@@ -19,7 +19,7 @@ spec:
         name: vue-expressjs-crud-database
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: 123456
+          value: "123456"
         - name: MYSQL_DATABASE
           value: "vueexpresscruddatabase"
         ports:
