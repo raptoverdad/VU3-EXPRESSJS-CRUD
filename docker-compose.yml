@@ -42,7 +42,8 @@ services:
     build:
       context: ./vue-crud-front
       dockerfile: Dockerfile
-    
+    environment:
+      - URL=localhost
     ports:
       - "8080:80" # Puedes mapear el puerto 80 del contenedor al puerto que prefieras en tu máquina local
     networks:
