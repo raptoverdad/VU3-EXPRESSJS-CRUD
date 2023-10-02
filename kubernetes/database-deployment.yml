@@ -6,22 +6,22 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: db
+      app: vue-expressjs-crud-database  # Coincide con las etiquetas en la plantilla
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: vue-expressjs-crud-database
+        app: vue-expressjs-crud-database  # Coincide con las etiquetas del selector
     spec:
       containers:
       - image: raptoverdad/vue-express-crud-database
         name: vue-expressjs-crud-database
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "123456"
+          value: 123456
         - name: MYSQL_DATABASE
-          value: "vueexpresscruddatabase"
+          value: vueexpresscruddatabase
         ports:
         - containerPort: 3306
         volumeMounts:
