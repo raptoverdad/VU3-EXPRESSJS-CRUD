@@ -45,5 +45,18 @@ jobs:
 
       - name: Configure AWS CLI
         run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set default.region ${{ secrets.AWS_REGION }}
-
+      - name: Update Kubeconfig
+        run: aws eks update-kubeconfig --name BABC-CLUSTER --region sa-east-1
+      - name: Deploy vue app deployment to eks
+        run: kubectl apply -f kubernetes/vue-app-deployment.yml
+      - name: Deploy vue app service to eks
+        run: kubectl apply -f kubernetes/vue-app-service.yml
+      - name: Deploy express api deployment to eks
+        run: kubectl apply -f kubernetes/express-api-deployment.yml
+      - name: Deploy express api service to eks
+        run: kubectl apply -f kubernetes/express-api-service.yml
+      - name: Deploy database deployment to eks
+        run: kubectl apply -f kubernetes/database-deployment.yml
+      - name: Deploy database service to eks
+        run: kubectl apply -f kubernetes/database-service.yml
 
