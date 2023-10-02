@@ -6,13 +6,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: vue-expressjs-crud-database  # Coincide con las etiquetas en la plantilla
+      app: vue-expressjs-crud-database 
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: vue-expressjs-crud-database  # Coincide con las etiquetas del selector
+        app: vue-expressjs-crud-database 
     spec:
       containers:
       - image: raptoverdad/vue-express-crud-database
