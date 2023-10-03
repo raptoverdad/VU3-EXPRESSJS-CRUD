@@ -122,6 +122,7 @@ export default {
 async getUsers() {
 
  if(this.$store.state.token != ''){
+  console.log("VARIABLE DE ENTORNO URL=",process.env.URL)
   let response = await this.$store.dispatch('fetchUsers');
       this.getUsersResponse = response;
  }else{
