@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: express-webapi
-        image: raptoverdad/vue-express-crud-back
+        image: raptoverdad/vue-express-crud-back:master
         ports:
         - containerPort: 3000

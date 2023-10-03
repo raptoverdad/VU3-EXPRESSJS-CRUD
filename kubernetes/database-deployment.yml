@@ -15,7 +15,7 @@ spec:
         app: vue-expressjs-crud-database 
     spec:
       containers:
-      - image: raptoverdad/vue-express-crud-database
+      - image: raptoverdad/vue-express-crud-database:master
         name: vue-expressjs-crud-database
         env:
         - name: MYSQL_ROOT_PASSWORD
