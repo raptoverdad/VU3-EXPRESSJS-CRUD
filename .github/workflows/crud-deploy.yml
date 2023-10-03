@@ -43,30 +43,16 @@ jobs:
       - name: Update Kubeconfig
         run: aws eks update-kubeconfig --name BABC-CLUSTER --region sa-east-1
 
-      - name: delete vue app deployment
-        run: kubectl delete deployment vue-app-deployment -n vue-expressjs-crud
-      - name: delete db deployment
-        run: kubectl delete deployment db-deployment -n vue-expressjs-crud
-      - name: delete express api deployment  
-        run: kubectl delete deployment webapi-deployment -n vue-expressjs-crud
-
-      - name: delete vue app service
-        run: kubectl delete service vue-app-service -n vue-expressjs-crud
-      - name: delete db service
-        run: kubectl delete service express-mysql-db -n vue-expressjs-crud
-      - name: delete express api service  
-        run: kubectl delete service webapi-service -n vue-expressjs-crud
-
       - name: Deploy vue app deployment to eks
-        run: kubectl apply -f kubernetes/vue-app-deployment.yml
+        run: kubectl apply -f kubernetes/vue-app-deployment.yml -n vue-expressjs-crud
       - name: Deploy vue app service to eks
-        run: kubectl apply -f kubernetes/vue-app-service.yml
+        run: kubectl apply -f kubernetes/vue-app-service.yml -n vue-expressjs-crud
       - name: Deploy express api deployment to eks
-        run: kubectl apply -f kubernetes/express-api-deployment.yml
+        run: kubectl apply -f kubernetes/express-api-deployment.yml -n vue-expressjs-crud
       - name: Deploy express api service to eks
-        run: kubectl apply -f kubernetes/express-api-service.yml
+        run: kubectl apply -f kubernetes/express-api-service.yml -n vue-expressjs-crud
       - name: Deploy database deployment to eks
-        run: kubectl apply -f kubernetes/database-deployment.yml
+        run: kubectl apply -f kubernetes/database-deployment.yml -n vue-expressjs-crud
       - name: Deploy database service to eks
-        run: kubectl apply -f kubernetes/database-service.yml
+        run: kubectl apply -f kubernetes/database-service.yml -n vue-expressjs-crud
 
