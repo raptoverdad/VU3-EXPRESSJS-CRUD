@@ -13,7 +13,6 @@
         <h3 v-if="getUsersResponse != ''">USERS:</h3>
         <ul v-if="getUsersResponse != ''" class='users'>
             <li v-for="user in getUsersResponse">-Name: {{ user.name }}-Age: {{ user.age }}</li>
-
         </ul>
     </div>
 
