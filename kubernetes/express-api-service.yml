@@ -5,8 +5,9 @@ metadata:
   namespace: vue-expressjs-crud
 spec:
   selector:
-    app: webapi
+    app: express-webapi
   ports:
     - protocol: TCP
-      port: 4000
-      targetPort: 3000
+      port: 5000  # Puerto externo del LoadBalancer
+      targetPort: 3000  # Puerto del servicio interno
+  type: LoadBalancer
