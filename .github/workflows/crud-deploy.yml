@@ -42,6 +42,21 @@ jobs:
         run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set default.region ${{ secrets.AWS_REGION }}
       - name: Update Kubeconfig
         run: aws eks update-kubeconfig --name BABC-CLUSTER --region sa-east-1
+
+      - name: delete vue app deployment
+        run: kubectl delete deployment vue-app-deployment -n vue-expressjs-crud
+      - name: delete db deployment
+        run: kubectl delete deployment db-deployment -n vue-expressjs-crud
+      - name: delete express api deployment  
+        run: kubectl delete deployment webapi-deployment -n vue-expressjs-crud
+
+      - name: delete vue app service
+        run: kubectl delete service vue-app-service -n vue-expressjs-crud
+      - name: delete db service
+        run: kubectl delete service express-mysql-db -n vue-expressjs-crud
+      - name: delete express api service  
+        run: kubectl delete service webapi-service -n vue-expressjs-crud
+
       - name: Deploy vue app deployment to eks
         run: kubectl apply -f kubernetes/vue-app-deployment.yml
       - name: Deploy vue app service to eks
