@@ -30,6 +30,7 @@ export default createStore({
         commit('setToken', token);
         state.isLoading.authenticate=false
       } catch (error) {
+        console.log("VARIABLE DE ENTORNO URL=",process.env.URL)
         state.isLoading.authenticate=false
         alert("Error al autenticar")
         console.error('Error al obtener el token:', error);
