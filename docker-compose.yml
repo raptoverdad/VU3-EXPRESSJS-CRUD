@@ -12,7 +12,7 @@ services:
       - "8088:3000"
     build:
       context: ./express-crud-back
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     networks:
       - vue-express-crud-network
 
