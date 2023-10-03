@@ -13,8 +13,6 @@ services:
     build:
       context: ./express-crud-back
       dockerfile: Dockerfile
-    environment:
-      - PORT=3000
     networks:
       - vue-express-crud-network
 

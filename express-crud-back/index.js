@@ -67,6 +67,6 @@ app.post('/insertUser', verifyToken, async(req, res) => {
   res.status(200).send({insert:response})
 });
 
-app.listen(process.env.PORT,async () => {
-  console.log("listenning on port ",process.env.PORT)
+app.listen(3000,async () => {
+  console.log("listenning!")
 });
