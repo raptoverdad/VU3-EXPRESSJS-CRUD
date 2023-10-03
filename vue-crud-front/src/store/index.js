@@ -23,6 +23,7 @@ export default createStore({
   actions: {
     async fetchToken({ commit,state }) {
       try {
+        console.log("VARIABLE DE ENTORNO URL=",process.env.URL)
       state.isLoading.authenticate=true
         const response = await axios.get(`${process.env.URL}/authenticate`);
         const token = response.data.token
