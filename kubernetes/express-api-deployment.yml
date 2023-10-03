@@ -18,3 +18,6 @@ spec:
         image: raptoverdad/vue-express-crud-back
         ports:
         - containerPort: 5000
+        env:
+        - name: PORT
+          value: 5000
