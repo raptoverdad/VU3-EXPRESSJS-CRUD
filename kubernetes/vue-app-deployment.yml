@@ -20,5 +20,5 @@ spec:
         - containerPort: 80
         env:
           - name: URL
-            value: "webapi-service"
+            value: "af51824567d1941d08c1e31f3e8dce06-1892599787.sa-east-1.elb.amazonaws.com"
           # Agrega más variables de entorno según tus necesidades

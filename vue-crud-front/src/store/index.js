@@ -24,7 +24,7 @@ export default createStore({
     async fetchToken({ commit,state }) {
       try {
       state.isLoading.authenticate=true
-        const response = await axios.get(`http://${process.env.URL}/authenticate`);
+        const response = await axios.get(`${process.env.URL}/authenticate`);
         const token = response.data.token
         commit('setToken', token);
         state.isLoading.authenticate=false
