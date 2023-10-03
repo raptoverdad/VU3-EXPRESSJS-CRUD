@@ -5,7 +5,7 @@ metadata:
   namespace: vue-expressjs-crud
 spec:
   selector:
-    app: db
+    app: vue-expressjs-crud-database
   ports:
     - protocol: TCP
       port: 3306
