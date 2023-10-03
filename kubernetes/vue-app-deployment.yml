@@ -20,5 +20,5 @@ spec:
         - containerPort: 80
         env:
           - name: URL
-            value: webapi-service
+            value: "webapi-service"
           # Agrega más variables de entorno según tus necesidades
