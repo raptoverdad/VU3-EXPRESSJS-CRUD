@@ -72,7 +72,11 @@ export default {
 },
   components: {
     
-  },methods:{
+  },
+  created(){
+alert("¡Bienvenido! / welcome!")
+  },
+  methods:{
     async getToken(){
        await this.$store.dispatch('fetchToken');
     },
