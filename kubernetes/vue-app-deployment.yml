@@ -18,7 +18,5 @@ spec:
         image: raptoverdad/vue-express-crud-front:master
         ports:
         - containerPort: 80
-        env:
-          - name: ENTORNO
-            value: "kubernetes"
+
           # Agrega más variables de entorno según tus necesidades

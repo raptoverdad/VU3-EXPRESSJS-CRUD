@@ -1,5 +1,5 @@
 # Etapa 1: Utilizar una imagen base de Node.js para construir la aplicación
-FROM node:19 as builder
+FROM node:18 as builder
 
 RUN mkdir -p /app
 
@@ -8,7 +8,6 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build --prod
-
 
 FROM nginx:alpine
 

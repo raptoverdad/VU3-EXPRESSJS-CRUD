@@ -25,9 +25,9 @@ spec:
         ports:
         - containerPort: 3306
         volumeMounts:
-        - name: mysql-persistent-storage
+        - name: express-persistent-storage
           mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-persistent-storage
+      - name: express-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: express-pv-claim

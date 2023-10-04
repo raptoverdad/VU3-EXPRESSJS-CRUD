@@ -74,6 +74,7 @@ export default {
   },
   created(){
 alert("¡Bienvenido! / welcome!")
+console.log("VARIABLEs DE ENTORNO:",process.env)
   },
   methods:{
     async getToken(){
