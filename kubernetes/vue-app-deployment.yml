@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: app-container
-        image: raptoverdad/vue-express-crud-front
+        image: raptoverdad/vue-express-crud-front:master
         ports:
         - containerPort: 80
 
