@@ -16,5 +16,6 @@ spec:
       containers:
       - name: express-webapi
         image: raptoverdad/vue-express-crud-back:master
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000

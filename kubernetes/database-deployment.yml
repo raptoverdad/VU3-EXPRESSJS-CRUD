@@ -17,6 +17,7 @@ spec:
       containers:
       - image: raptoverdad/vue-express-crud-database:master
         name: vue-expressjs-crud-database
+        imagePullPolicy: Always
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "123456"

@@ -16,7 +16,8 @@ spec:
       containers:
       - name: app-container
         image: raptoverdad/vue-express-crud-front:master
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 
-          # Agrega más variables de entorno según tus necesidades
+          
