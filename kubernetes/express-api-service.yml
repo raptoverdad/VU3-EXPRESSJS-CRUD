@@ -10,4 +10,3 @@ spec:
     - protocol: TCP
       port: 5000  # Puerto externo del LoadBalancer
       targetPort: 3000  # Puerto del servicio interno
-  type: LoadBalancer
