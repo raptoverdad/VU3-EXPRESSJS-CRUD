@@ -4,9 +4,10 @@ metadata:
   name: webapi-service
   namespace: vue-expressjs-crud
 spec:
+  ports:
+  - port: 30500
+    targetPort: 3000
+    protocol: TCP
+  type: NodePort
   selector:
     app: express-webapi
-  ports:
-    - protocol: TCP
-      port: 5000  # Puerto externo del LoadBalancer
-      targetPort: 3000  # Puerto del servicio interno

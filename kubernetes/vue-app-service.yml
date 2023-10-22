@@ -4,12 +4,11 @@ metadata:
   name: vue-app-service
   namespace: vue-expressjs-crud
 spec:
-  type: NodePort 
-  selector:
-    app: vue-app  # Esto debe coincidir con la etiqueta de tu Deployment
   ports:
-    - protocol: TCP
-      port: 80  # Puerto externo del Service
-      targetPort: 80  # Puerto del contenedor que deseas exponer
-      nodePort: 30000
+  - port: 30600
+    targetPort: 80
+    protocol: TCP
+  type: NodePort
+  selector:
+    app: vue-app
 

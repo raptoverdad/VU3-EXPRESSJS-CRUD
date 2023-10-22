@@ -39,6 +39,9 @@ app.get('/authenticate',async (req, res) => {
   res.status(200).send({ auth: true, token: token });
 });
 
+app.get('/',async (req, res) => {
+  res.status(200).send("express web api working!!");
+});
 app.get('/getUsers', verifyToken,async (req, res) => {
   let response=await (await businessLayer).getUsers()
   res.status(200).send({users:response})
