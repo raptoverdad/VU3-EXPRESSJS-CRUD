@@ -11,6 +11,7 @@ para empezar, verás la aplicación en estado ( Authenticated: False ). esto sig
 ![Aplicación](https://res.cloudinary.com/debvhmcid/image/upload/v1698113694/vue-express-crud-principal_pst4qr.jpg)
 Luego, la aplicación se verá algo así:
 ![Aplicación](https://res.cloudinary.com/debvhmcid/image/upload/v1698113879/vue-express-crud-authenticated_pxx2hq.jpg)
+Ya está. puedes empezar a usar la aplicación libremente para interactuar con la base de datos y la web api de node.
 
 # CONCLUSIÓN
 Gracias por visitar el proyecto. si deseas ponerte en contacto conmigo puedes encontrar mas información sobre mi en linkedin! https://www.linkedin.com/in/rodrigo-m-reidenbach-884337238/
